@@ -2,14 +2,14 @@
 
 This repository's purpose is to document my learning and usage of Rust.
 
-## Table of Contents {#contents}
+## Table of Contents
 
-- [Table of Contents](#contents)
+- [Table of Contents](#table-of-contents)
 - [Features](#features)
 
-## Features {#features}
+## Features
 
- - Directories serve as exercises and projects.
- - JOURNEY.md serves as a record of what I have been doing and my current progress.
+- Directories serve as exercises and projects.
+- JOURNEY.md serves as a record of what I have been doing and my current progress.
 
 
