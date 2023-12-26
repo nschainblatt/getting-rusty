@@ -7,3 +7,4 @@ This file represents the steps I have taken so far learning Rust.
 # Week 2:
 - 12/24/2023: Completed the last exercise from the third chapter (twelve_days_of_christmas) and read all of chapter four (will read again to solidify the concept of ownership, references, and slices).
 - 12/25/2023: Read chapter four again to get a better grasp of Rust's memory management system. Started reading chapter five which involves structs. A Struct is a type of data structure that groups together variables of different types under a single name. Structs give the programmer the ability to create custom data types to represent a concept in a program.
+- 12/26/2023: Read all of chapter five. Learned about structs, usecases of structs, and struct methods otherwise known as associated functions. Uploaded a project named rectangles which shows a lot of the basic use cases of structs.
