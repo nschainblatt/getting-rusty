@@ -1,5 +1,4 @@
 use std::io;
-use std::process;
 
 struct Todo {
     name: String,
@@ -9,13 +8,12 @@ struct Todo {
 impl Todo {
     fn get_position() -> usize {
         println!("Enter the position [1-5]");
-        println!();
 
         loop {
             let mut position = String::new();
             io::stdin()
                 .read_line(&mut position)
-                .expect("Failed to read line");
+                .expect("Failed to read line\n");
             println!();
             let position: usize = match position.trim().parse() {
                 Ok(result) => match result {
@@ -55,24 +53,24 @@ impl Todo {
 
     fn add_todo(self: &mut Self) {
         let position = Self::get_position();
-        println!("Enter the todo you want to add\n");
+        println!("Enter the todo you want to add");
         let mut content = String::new();
         io::stdin()
             .read_line(&mut content)
-            .expect("Failed to read from line");
+            .expect("Failed to read from line\n");
         let content = content.trim().to_string();
         self.todos[position] = content;
-        println!();
+        println!("Todo has been added\n");
     }
 
     fn delete_todo(self: &mut Self) {
         let position = Self::get_position();
         self.todos[position] = "".to_string();
-        println!();
+        println!("Todo has been deleted\n");
     }
 
     fn read_todos(self: &Self) {
-        println!("Your todos:");
+        println!("Your todos:\n");
         let mut empty = true;
         for (i, todo) in self.todos.iter().enumerate() {
             if todo.to_string() != "".to_string() {
@@ -92,7 +90,7 @@ fn create_todo_list(container: &mut Vec<Todo>) {
 
     io::stdin()
         .read_line(&mut name)
-        .expect("Failed to read line");
+        .expect("Failed to read line\n");
 
     let name = name.trim().to_string();
 
@@ -106,13 +104,28 @@ fn create_todo_list(container: &mut Vec<Todo>) {
             String::new(),
         ],
     });
-    println!();
+    println!("\nTodo list has been created\n");
 }
 
-fn delete_todo_list(container: &mut Vec<Todo>) {}
+fn delete_todo_list(container: &mut Vec<Todo>) {
+    println!("Enter the name of the todo list you want to delete:");
+    let mut delete_name = String::new();
+    io::stdin()
+        .read_line(&mut delete_name)
+        .expect("Failed to read line\n");
+    let delete_name = delete_name.trim();
+    for (i, todo_list) in container.iter().enumerate() {
+        if delete_name == todo_list.name {
+            container.remove(i);
+            println!("Todo list has been deleted\n");
+            return;
+        }
+    }
+    println!("{} does not exist!\n", delete_name);
+}
 
 fn list_todo_lists(container: &Vec<Todo>) {
-    print!("Todo lists: \n");
+    print!("Todo lists:\n");
     let mut empty = true;
     for (i, todo_list) in container.iter().enumerate() {
         if todo_list.name != "".to_string() {
@@ -128,12 +141,12 @@ fn list_todo_lists(container: &Vec<Todo>) {
 }
 
 fn select_todo_list(todo_container: &mut Vec<Todo>) {
-    println!("Enter the name of the todo list\n");
+    println!("Enter the name of the todo list");
     let mut selected_todo_list = String::new();
 
     io::stdin()
         .read_line(&mut selected_todo_list)
-        .expect("Failed to read line");
+        .expect("Failed to read line\n");
     println!();
     selected_todo_list = selected_todo_list.trim().to_string();
 
@@ -167,7 +180,7 @@ fn display_individual_todo_menu() -> String {
     let mut input = String::new();
     io::stdin()
         .read_line(&mut input)
-        .expect("Failed to read line");
+        .expect("Failed to read line\n");
     let input = input.trim();
     println!();
 
@@ -184,7 +197,7 @@ fn display_todo_list_menu() -> String {
     let mut input = String::new();
     io::stdin()
         .read_line(&mut input)
-        .expect("Failed to read line");
+        .expect("Failed to read line\n");
     let input = input.trim();
     println!();
 
