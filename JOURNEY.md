@@ -41,3 +41,6 @@ This file represents the steps I have taken so far in learning Rust.
 - Users can add up to five todos per list (can easily use vectors but want to limit the todo capacity to increase descriptiveness and productivity).
 - So far i've incorporated, structs, methods, functions, loops, ownership, and references (both mutable and immutable) with a various other few topics I found on my own that I have not come across in the book.
 - Although simple, I really enjoy putting the new syntax and the new topics (ownership and references) to practice in a simple but satisfying CLI program.
+
+### 12/29/2023
+- Added a delete method for todo lists where it deletes the instance by a field name value.
