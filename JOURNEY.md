@@ -35,3 +35,9 @@ This file represents the steps I have taken so far in learning Rust.
 - Once I learn more about Rust, I plan on doing DSA (Data Structure and Algorithms) problems using Rust as I feel this is an excellent way to learn the language.
 - I've got some more reading on Rust to do first.
 
+### 12/28/2023
+- Continued working on my to_do project.
+- I've incorporated a multi-level menu system and am now allowing users to have multiple to_do lists.
+- Users can add up to five todos per list (can easily use vectors but want to limit the todo capacity to increase descriptiveness and productivity).
+- So far i've incorporated, structs, methods, functions, loops, ownership, and references (both mutable and immutable) with a various other few topics I found on my own that I have not come across in the book.
+- Although simple, I really enjoy putting the new syntax and the new topics (ownership and references) to practice in a simple but satisfying CLI program.
