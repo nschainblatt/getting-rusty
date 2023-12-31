@@ -50,3 +50,7 @@ This file represents the steps I have taken so far in learning Rust.
 
 ### 12/30/2023
 - Read most of chapter 7, which went over organizing code into different modules.
+- Completed day 01 part 01 of advent of code in Rust.
+
+### 12/31/2023
+- Worked on day 01 part 02 of advent of code.
