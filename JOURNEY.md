@@ -49,8 +49,19 @@ This file represents the steps I have taken so far in learning Rust.
 - Match construct: Similar to a switch case in other programming languages, though it has more capabilities than just comparing values, such as pattern matching which can destructure tuples, enums, pointers, etc. It allows you to match a value to a pattern and then return a another value, you can also run a block and then return a value, but it must return the corresponding type thats expected from where the value is getting assigned to/returning to. A match must provide each possible outcome that there is. The match case has a default case to ensure this.
 
 ### 12/30/2023
-- Read most of chapter 7, which went over organizing code into different modules.
+- Read some of chapter 7, which went over organizing code into different modules.
 - Completed day 01 part 01 of advent of code in Rust.
+
+## Week 3
 
 ### 12/31/2023
 - Worked on day 01 part 02 of advent of code.
+
+### 01/01/2024
+- Finished reading chapter 7 which was about organizing your code into seperate modules.
+- Modules: are a way to seperate your code into seperate scopes to control what code is public and private in your package. Modules are mostly used in seperate files but can be written all in one file by using the mod keyword. Modules are great for organizing related code and functionality into seperate modules/files so you know where to look for a specific feature or bug. 
+- Packages: A cargo feature that lets you build, test, and share crates.
+- Crates: A tree of modules that produces a library or an executable (lib.rs/main.rs) a crate can have both.
+- Modules: Let you control the organization, scope, and privacy of paths, use the mod keyword to reference a module in a seperate foler or to create one in the current file within curly braces. (Typically organized into seperate modules but you have to declare with mod and then use the keyword use below).
+- Use: The keyword than lets you bring in the functionality of a declared module into scope.
+- Paths: A way of naming an item, such as a struct, function, or module.
