@@ -9,7 +9,8 @@ This repository's purpose is to document my learning and usage of Rust.
 
 ## About
 
-- Directories serve as exercises and projects.
 - JOURNEY.md serves as a record of what I have been doing and my current progress.
-
+- Directories:
+  - code-along: contains code where I follow the code in each chapter.
+  - projects: contains projects both from within the book and outside.
 
