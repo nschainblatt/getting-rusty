@@ -20,6 +20,8 @@ This file represents the steps I have taken so far in learning Rust.
 - Started reading chapter five which involves structs.
   - A Struct is a type of data structure that groups together variables of different types under a single name.
   - Structs give the programmer the ability to create custom data types to represent a concept in a program.
+- Strings, vectors, hash maps, and many more complex types have a pointer, a length, and a capacity that resides on the stack in memory. The pointer on the stack points to the data that is stored on the heap. Data is stored on the heap typically when dealing with dynamic data, or data that changes.
+- Basic types such as ints, floats, booleans, string literals and others all reside on the stack only. This is because these types are of fixed size known at compile time. It is also more efficient than being stored on the heap. A integer of type i32 will always take up the same amount of memory.
 
 ### 12/26/2023
 - Read all of chapter five.
@@ -65,3 +67,7 @@ This file represents the steps I have taken so far in learning Rust.
 - Modules: Let you control the organization, scope, and privacy of paths, use the mod keyword to reference a module in a seperate foler or to create one in the current file within curly braces. (Typically organized into seperate modules but you have to declare with mod and then use the keyword use below).
 - Use: The keyword than lets you bring in the functionality of a declared module into scope.
 - Paths: A way of naming an item, such as a struct, function, or module.
+
+### 01/02/2024
+- Read section 8.1, which was about vectors.
+- Vectors: are one of rusts collections that can hold a variable number of elements of all the same type. Vectors don't have to have the size known at compile time, they can grow larger and smaller throughout runtime. The vector you deal with in code is stored on the stack as a pointer to it's data which is stored on the heap. The same concepts with ownersip apply to vectors, if you create an immutable reference then you cannot have a mutable reference at the same time and you also can't push onto a vector with an existing immutable array.
