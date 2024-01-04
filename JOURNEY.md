@@ -71,3 +71,9 @@ This file represents the steps I have taken so far in learning Rust.
 ### 01/02/2024
 - Read section 8.1, which was about vectors.
 - Vectors: are one of rusts collections that can hold a variable number of elements of all the same type. Vectors don't have to have the size known at compile time, they can grow larger and smaller throughout runtime. The vector you deal with in code is stored on the stack as a pointer to it's data which is stored on the heap. The same concepts with ownersip apply to vectors, if you create an immutable reference then you cannot have a mutable reference at the same time and you also can't push onto a vector with an existing immutable array.
+
+### 01/03/2024
+- Read the rest of chapter 8, learned more abouts the String type and the string slice &str, as well as hash maps.
+- String: A type that has been coded into the standard library rather than being apart of the core language. String type is mutable, growable, and owned and encoded in UTF-8. String's data is stored on the head, with the pointer, length, and capacity being stored on the stack.
+- str: A string slice that is part of the core language. str's are not mutable, they are static and are stored on the stack. str's are typically used as its reference version &str which is just called a reference to a string slice. These are also UTF-8 encoded. String literals are stored in the program's binary and are therefore string slices.
+- HashMaps: HashMaps are a collection that stores a mapping of keys to values.
