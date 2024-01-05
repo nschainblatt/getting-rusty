@@ -77,3 +77,7 @@ This file represents the steps I have taken so far in learning Rust.
 - String: A type that has been coded into the standard library rather than being apart of the core language. String type is mutable, growable, and owned and encoded in UTF-8. String's data is stored on the head, with the pointer, length, and capacity being stored on the stack.
 - str: A string slice that is part of the core language. str's are not mutable, they are static and are stored on the stack. str's are typically used as its reference version &str which is just called a reference to a string slice. These are also UTF-8 encoded. String literals are stored in the program's binary and are therefore string slices.
 - HashMaps: HashMaps are a collection that stores a mapping of keys to values.
+
+### 01/04/2024
+- Completed the first exercise/project at the end of chapter 8.
+- Project: Sort a list of integers, get the median, and then get the mode. Using vectors and hashmaps.
