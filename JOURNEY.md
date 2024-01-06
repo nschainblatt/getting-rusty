@@ -81,3 +81,9 @@ This file represents the steps I have taken so far in learning Rust.
 ### 01/04/2024
 - Completed the first exercise/project at the end of chapter 8.
 - Project: Sort a list of integers, get the median, and then get the mode. Using vectors and hashmaps.
+
+### 01/05/2024
+- Completed the second project from chapter 8.
+- Completed my own version of the last project from chapter 8.
+- I Will do the version in the book tommorrow (was easier than the features I made, I used structs and vectors instead of hashmaps and vectors for the company CLI)
+- One of the features I implemented when I didn't need to (didn't know you could compare strings < > in rust) was binary sorting the employee names by the first letter of their name. So obviously not only would it have been easier to just compare the strings, but it would also have been more accurate as I just sorted by the first character lol.
