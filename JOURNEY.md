@@ -87,3 +87,7 @@ This file represents the steps I have taken so far in learning Rust.
 - Completed my own version of the last project from chapter 8.
 - I Will do the version in the book tommorrow (was easier than the features I made, I used structs and vectors instead of hashmaps and vectors for the company CLI)
 - One of the features I implemented when I didn't need to (didn't know you could compare strings < > in rust) was binary sorting the employee names by the first letter of their name. So obviously not only would it have been easier to just compare the strings, but it would also have been more accurate as I just sorted by the first character lol.
+
+### 01/06/2024
+- Completed the book specific version of the last exercise from chapter 8.
+- Read up to section 9.2 which went over the panic! macro and learning about recoverable and unrecoverable errors.
