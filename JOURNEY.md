@@ -91,3 +91,6 @@ This file represents the steps I have taken so far in learning Rust.
 ### 01/06/2024
 - Completed the book specific version of the last exercise from chapter 8.
 - Read up to section 9.2 which went over the panic! macro and learning about recoverable and unrecoverable errors.
+
+### 01/07/2024
+- Continued reading chapter 9.
