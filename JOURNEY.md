@@ -97,3 +97,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 01/09/2024
 - Read section 9.2. Learned about the ? operator to shorten code required to return Result<T, E> type.
+
+## 01/10/2024
+- Finished reading chapter 9.
