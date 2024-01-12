@@ -100,3 +100,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 01/10/2024
 - Finished reading chapter 9.
+
+## 01/11/2024
+- Started reading chapter 10, which is about generic types, traits, and lifetimes.
