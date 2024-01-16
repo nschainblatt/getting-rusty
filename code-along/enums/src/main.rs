@@ -23,7 +23,12 @@ enum Message {
 }
 
 impl Message {
-    fn call(self: &Self) {}
+    fn call(self: &Self) {
+        match self {
+            Self::Write(message) => println!("{}", message),
+            _ => return,
+        }
+    }
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
