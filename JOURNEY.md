@@ -103,3 +103,12 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 01/11/2024
 - Started reading chapter 10, which is about generic types, traits, and lifetimes.
+
+## 1/13/2024
+- Continued reading chapter 10
+
+## 1/14/2024 
+- Started doing rustlings exercises which I plan on doing up until the point I have read in the main book. I am rereading concepts that I need a refresher on.
+
+## 1/15/2024
+- Continued working on rustlings and rereading.
