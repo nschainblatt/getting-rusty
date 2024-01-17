@@ -112,3 +112,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/15/2024
 - Continued working on rustlings and rereading.
+
+## 1/16/2024
+- Currently in the middle of doing the rustlings reading and exercises on modules.
