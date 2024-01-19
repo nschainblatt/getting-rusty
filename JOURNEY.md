@@ -115,3 +115,10 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/16/2024
 - Currently in the middle of doing the rustlings reading and exercises on modules.
+
+## 1/17/2024
+- Rustlings
+
+## 1/18/2024
+- Rustlings
+
