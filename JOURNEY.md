@@ -124,3 +124,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/19/2024
 - Rustlings
+
+## 1/20/2024
+- Rustlings
