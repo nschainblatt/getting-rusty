@@ -1,5 +1,4 @@
 # My Journey With Getting Rusty
-
 This file represents the steps I have taken so far in learning Rust.
 
 ## Week 1
@@ -130,3 +129,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/21/2024
 - Error handling rustlings
+
+## 1/22/2024 
+- Generics rustlings
