@@ -132,3 +132,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/22/2024 
 - Generics rustlings
+
+## 1/23/2024
+- Traits rustlings, code along and extra work with traits
