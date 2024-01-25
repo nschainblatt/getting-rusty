@@ -135,3 +135,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/23/2024
 - Traits rustlings, code along and extra work with traits
+
+## 1/24/2024
+- Lifetimes rustlings, quiz3
