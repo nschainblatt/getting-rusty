@@ -26,7 +26,7 @@ impl Guess {
     }
 }
 
- fn add_two(a: i32) -> i32 {
+pub fn add_two(a: i32) -> i32 {
     a + 2
 }
 
@@ -68,7 +68,7 @@ mod tests {
             height: 15,
         };
         assert!(!smaller.can_hold(&larger));
-    }
+    }   
 
     #[test]
     fn it_adds_two() {
@@ -90,5 +90,15 @@ mod tests {
     #[test]
     fn valid_guess() {
         Guess::new(40);
+    }
+    
+    #[test]
+    #[ignore]
+    fn result_test() -> Result<(), String> {
+        if 2 + 2 == 4 {
+            Ok(())
+        } else {
+            Err("two plus two does not equal four".to_string())
+        }
     }
 }
