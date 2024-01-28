@@ -144,3 +144,6 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/26/2024
 - Finished reading the testing chapter and finished the testing exercises in rustlings
+
+## 1/27/2024
+- Started on interators in rustlings and reading
