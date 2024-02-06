@@ -147,3 +147,9 @@ This file represents the steps I have taken so far in learning Rust.
 
 ## 1/27/2024
 - Started on interators in rustlings and reading
+
+## 02/03/2024
+- Closures
+
+## 2/05/2024
+- Iterators 
