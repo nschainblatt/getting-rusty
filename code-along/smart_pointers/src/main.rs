@@ -2,7 +2,7 @@ use smart_pointers::{
     self,
     List::{Cons, Nil},
     List2::{Cons2, Nil2},
-};
+
 use std::rc::Rc;
 
 fn main() {
