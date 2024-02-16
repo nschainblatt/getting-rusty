@@ -41,7 +41,9 @@ impl Post {
 }
 
 trait State {
-    fn add_text<'a>(&'a self, text: &'a str) -> &'a str;
+    fn add_text<'a>(&'a self, _text: &'a str) -> &'a str {
+        ""
+    }
     fn request_review(self: Box<Self>) -> Box<dyn State>;
     fn reject(self: Box<Self>) -> Box<dyn State>;
     fn approve(self: Box<Self>) -> Box<dyn State>;
@@ -70,9 +72,6 @@ impl State for Draft {
 struct PendingReview {}
 
 impl State for PendingReview {
-    fn add_text(&self, _text: &str) -> &str {
-        ""
-    }
     fn request_review(self: Box<Self>) -> Box<dyn State> {
         self
     }
@@ -87,9 +86,6 @@ impl State for PendingReview {
 struct Reject {}
 
 impl State for Reject {
-    fn add_text(&self, _text: &str) -> &str {
-        ""
-    }
     fn request_review(self: Box<Self>) -> Box<dyn State> {
         self
     }
@@ -104,9 +100,6 @@ impl State for Reject {
 struct Scheduled {}
 
 impl State for Scheduled {
-    fn add_text(&self, _text: &str) -> &str {
-        ""
-    }
     fn request_review(self: Box<Self>) -> Box<dyn State> {
         self
     }
@@ -121,9 +114,6 @@ impl State for Scheduled {
 struct Published {}
 
 impl State for Published {
-    fn add_text(&self, _text: &str) -> &str {
-        ""
-    }
     fn request_review(self: Box<Self>) -> Box<dyn State> {
         self
     }
