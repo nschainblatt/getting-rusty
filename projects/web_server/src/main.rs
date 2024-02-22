@@ -2,43 +2,21 @@ use std::{
     fs,
     io::{prelude::*, BufReader},
     net::{TcpListener, TcpStream},
-    thread::{self, Builder, Thread},
+    thread,
     time::Duration,
 };
-
-struct ThreadPool {
-    threads: Vec<Builder>,
-}
-
-impl ThreadPool {
-    fn new(num_threads: i32) -> ThreadPool {
-        let mut pool = ThreadPool { threads: vec![] };
-        for _ in 0..num_threads {
-            let thread = thread::Builder::new();
-            pool.threads.push(thread);
-        }
-        pool
-    }
-}
+use web_server::ThreadPool;
 
 fn main() {
     let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    let mut pool = ThreadPool::new(4);
+    let pool = ThreadPool::build(4).unwrap();
 
     for stream in listener.incoming() {
-        println!("Amount of available threads: {}", pool.threads.len());
         let stream = stream.unwrap();
 
-        let builder = pool.threads.pop().unwrap();
-
-        let _handler = builder
-            .spawn(|| {
-                handle_connection(stream);
-            })
-            .unwrap();
-
-        let thread = thread::Builder::new();
-        pool.threads.push(thread);
+        pool.execute(|| {
+            handle_connection(stream);
+        });
     }
 }
 
