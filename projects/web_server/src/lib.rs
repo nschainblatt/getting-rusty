@@ -131,7 +131,9 @@ impl Drop for ThreadPool {
         for worker in &mut self.workers {
             println!("Shutting down worker {}", worker.id);
             if let Some(thread) = worker.thread.take() {
-                thread.join().unwrap();
+                thread
+                    .join()
+                    .expect("Couldn't join on the associated thread");
             }
         }
     }
@@ -142,10 +144,43 @@ mod test {
     use super::*;
 
     #[test]
-    fn create_and_user_thread_pool() {
+    fn create_and_use_thread_pool() {
         let pool = ThreadPool::build(4).unwrap();
         pool.execute(|| {
             println!("Hello from the new thread!");
         });
+    }
+
+    #[test]
+    fn create_bad_thread_pool() {
+        if ThreadPool::build(0).is_ok() {
+            panic!("Should not be able to build a ThreadPool with zero threads.")
+        }
+    }
+
+    #[test]
+    fn create_and_use_worker() {
+        let id: usize = 1;
+        let (sender, receiver) = mpsc::channel();
+        let receiver = Arc::new(Mutex::new(receiver));
+        let worker = Worker::new(id, Arc::clone(&receiver));
+        let owned_value =
+            String::from("This is a owned String value that was moved and printed on the spawned thread in the Worker.");
+        sender
+            .send(Box::new(move || {
+                println!("{owned_value}");
+            }))
+            .unwrap();
+
+        // Dropping the sender causes the thread to shutdown and exit the loop
+        drop(sender);
+
+        if let Some(thread) = worker.thread {
+            // Will wait here until the thread finishes, dropped the sender above as the thread
+            // contains a loop that won't break until the sender is disconnected.
+            thread.join().unwrap();
+        } else {
+            panic!("Thread has already been dropped!");
+        }
     }
 }
