@@ -3,32 +3,48 @@ use std::{
     thread,
 };
 
-struct Job;
+pub mod modules {
+    pub mod api;
+    pub mod errors;
+}
+
+use modules::errors;
+
+type Job = Box<dyn FnOnce() + Send + 'static>;
 
 #[derive(Debug)]
 struct Worker {
     id: usize,
-    thread: thread::JoinHandle<()>,
+    thread: Option<thread::JoinHandle<()>>,
 }
 
 impl Worker {
     fn new(id: usize, receiver: Arc<Mutex<mpsc::Receiver<Job>>>) -> Worker {
-        let thread = thread::spawn(|| {
-            receiver;
+        let thread = thread::spawn(move || loop {
+            let message = receiver.lock().unwrap().recv();
+            match message {
+                Ok(job) => {
+                    println!("Worker {id} got a job; executing.");
+                    job();
+                }
+                Err(_) => {
+                    println!("Worker {id} disconnected, shutting down.");
+                    break;
+                }
+            }
         });
-        Worker { id, thread }
-    }
-}
 
-#[derive(Debug)]
-pub enum PoolCreationError {
-    InvalidSize,
+        Worker {
+            id,
+            thread: Some(thread),
+        }
+    }
 }
 
 #[derive(Debug)]
 pub struct ThreadPool {
     workers: Vec<Worker>,
-    sender: mpsc::Sender<Job>,
+    sender: Option<mpsc::Sender<Job>>,
 }
 
 impl ThreadPool {
@@ -40,9 +56,9 @@ impl ThreadPool {
     ///
     /// The `build` function will return an error of type `PoolCreationError` if creation of
     /// ThreadPool fails.
-    pub fn build(size: usize) -> Result<ThreadPool, PoolCreationError> {
+    pub fn build(size: usize) -> Result<ThreadPool, errors::PoolCreationError> {
         if size < 1 {
-            return Err(PoolCreationError::InvalidSize);
+            return Err(errors::PoolCreationError::InvalidSize);
         }
 
         let (sender, receiver) = mpsc::channel();
@@ -54,9 +70,29 @@ impl ThreadPool {
             workers.push(Worker::new(id, Arc::clone(&receiver)));
         }
 
-        Ok(ThreadPool { workers, sender })
+        Ok(ThreadPool {
+            workers,
+            sender: Some(sender),
+        })
     }
-    pub fn execute<F: FnOnce() + Send + 'static>(&self, f: F) {}
+    pub fn execute<F: FnOnce() + Send + 'static>(&self, f: F) {
+        let job = Box::new(f);
+        if let Some(sender) = &self.sender {
+            sender.send(job).unwrap();
+        }
+    }
+}
+
+impl Drop for ThreadPool {
+    fn drop(&mut self) {
+        drop(self.sender.take());
+        for worker in &mut self.workers {
+            println!("Shutting down worker {}", worker.id);
+            if let Some(thread) = worker.thread.take() {
+                thread.join().unwrap();
+            }
+        }
+    }
 }
 
 #[cfg(test)]
